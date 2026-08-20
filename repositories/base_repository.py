@@ -1,4 +1,4 @@
-from database import database   
+from database import db 
 
 """
 Módulo Base 
@@ -15,14 +15,14 @@ class BaseRepository:
         return self.model.query.get(entity_id)
     
     def criar(self, entity):
-        database.session.add(entity)
-        database.session.commit()
+        db.session.add(entity)
+        db.session.commit()
         return entity
     
     def atualizar(self, entity):
-        database.session.commit()
+        db.session.commit()
         return entity
     
     def deletar(self, entity):
-        database.session.delete(entity)
-        database.session.commit()
+        db.session.delete(entity)
+        db.session.commit()
