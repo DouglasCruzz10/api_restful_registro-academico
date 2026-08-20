@@ -1,14 +1,16 @@
 from flask import Flask
 from flask_cors import CORS
-from database import db
+from database import db, USER_DB, PASSWORD_DB, HOST_DB, DB_NAME
 from controllers.curso_controller import curso_bp
+
 
 def create_app():
     app = Flask(__name__)
+
     CORS(app)
 
     app.url_map.strict_slashes = False
-    app.config['SQLALCHEMY_DATABASE_URI'] = '' # inserir credenciais do banco de dados
+    app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://{USER_DB}:{PASSWORD_DB}@{HOST_DB}/{DB_NAME}' 
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     db.init_app(app)
