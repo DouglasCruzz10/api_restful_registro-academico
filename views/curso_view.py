@@ -1,3 +1,9 @@
+"""
+Classe de renderização das informações
+render_single = para renderizar um curso
+render_list = para retornar a lista de cursos
+"""
+
 class CursoView:
     @staticmethod
     def render_single(curso):
