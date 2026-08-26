@@ -2,6 +2,7 @@ from flask import Flask
 from flask_cors import CORS
 from database import db, USER_DB, PASSWORD_DB, HOST_DB, DB_NAME
 from controllers.curso_controller import curso_bp
+from controllers.turma_controller import turma_bp
 
 
 def create_app():
@@ -17,6 +18,7 @@ def create_app():
 
     # Registro do Blueprint de Cursos
     app.register_blueprint(curso_bp, url_prefix='/api/cursos')
+    app.register_blueprint(turma_bp, url_prefix='/api/turmas')
 
     with app.app_context():
         db.create_all()
