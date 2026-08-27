@@ -10,5 +10,5 @@ class TurmaModel(db.Model):
     nome = db.Column(db.String(100), unique = True, nullable = False)
     curso_id = db.Column(db.Integer, db.ForeignKey('cursos.id'), nullable=False)
 
-    # ⚠️ ADICIONE OU CONFIRME ESTA LINHA:
+    # relacionamento com curso
     curso = db.relationship('CursoModel', backref=db.backref('turmas', lazy=True))
